@@ -2,16 +2,24 @@ let userNumber = prompt('Угадай число от 1 до 100');
 let count = 10;
 let userChoise;
 
+const getRandomNumber = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
 const gameBot = () => {
     
-    const randomNumber = 25;
+    const randomNumber = getRandomNumber(1, 100);
+    console.log(randomNumber);
 
     const newGame = (message) => {
+        
         userChoise = confirm(message);
+        
         if (userChoise) {
             userNumber = prompt('Угадай число от 1 до 100');
-        count = 10;
-        gameBot();
+            count = 10;
+            gameBot();
+
         } else {
             alert('До новых встреч!')
             return;
